@@ -1,0 +1,18 @@
+Link Analysis Report
+1. Inode Identification & Setup
+
+Commands: echo "Project Data" > original.txt, ln original.txt hard_link.txt, ln -s original.txt soft_link.txt
+
+Observation: The ls -li command reveals that original.txt and hard_link.txt share the same Inode number (232576), proving they are linked to the same physical data. The soft_link.txt has a distinct Inode (229391) and acts as a symbolic pointer.
+
+2. Effect of Deleting the Original File
+
+Command: rm original.txt
+
+Observation: After deleting the original file, the hard link (hard_link.txt) still successfully displays the content "Project Data" via cat. However, the symbolic link (soft_link.txt) fails with "No such file or directory," confirming it has become a broken link.
+
+3. Key Findings & Conclusion
+
+Hard Links: Provide data redundancy. Since they point directly to the Inode, the data remains accessible even if the original file name is deleted, as long as at least one link remains.
+
+Symbolic Links: Function as shortcuts. They depend entirely on the existence and path of the target file. If the target is removed, the link becomes orphaned.
