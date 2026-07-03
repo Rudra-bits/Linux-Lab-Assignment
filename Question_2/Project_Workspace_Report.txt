@@ -1,0 +1,36 @@
+1. Umask Value Used
+
+Command: umask
+
+Observation: The system returned 0022. This is the default bitmask that restricts 'write' permissions for group and others when creating new files and directories.
+
+2. Directory Structure Created
+
+Commands: mkdir Secure_Project and touch Secure_Project/secret_doc.txt
+
+Observation: A directory named Secure_Project was created, and a file named secret_doc.txt was initialized inside it to serve as the project workspace.
+
+3. File Permissions Before Modification
+
+Commands: ls -ld Secure_Project and ls -l Secure_Project/secret_doc.txt
+
+Observation: * Secure_Project directory had drwxr-xr-x permissions.
+
+secret_doc.txt file had -rw-r--r-- permissions.
+
+These initial settings allowed 'others' to read and enter the project directory, which is insecure.
+
+4. Modification & Ownership Details
+
+Commands: chmod 750 Secure_Project and chmod 640 Secure_Project/secret_doc.txt
+
+Observation: The ownership remains with the user coder. Permissions were modified to 750 for the directory and 640 for the file, successfully restricting access to only the owner and the group.
+
+5. Explanation: How Permissions Protect Project Data
+By setting permissions to 750 (rwxr-x---) for the directory and 640 (rw-r-----) for the file, we ensure:
+
+Owner (coder): Retains full read, write, and execute control.
+
+Group (coder): Has read and execute access, allowing team members to view files without unauthorized modification.
+
+Others: Have zero permissions (---), meaning any external user is completely denied access to the project directory and its contents, ensuring data confidentiality.
