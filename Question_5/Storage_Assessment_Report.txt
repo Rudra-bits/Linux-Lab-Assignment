@@ -1,0 +1,17 @@
+Storage Assessment Report
+
+1. Available Storage Devices:
+Command: lsblk
+Observation: Multiple NVMe disks identified (nvme0n1 to nvme3n1).
+
+2. Mounted File Systems & Usage:
+Command: df -h
+Observation: Root partition (/) is at 29% usage; storage capacity is well-provisioned for application deployment.
+
+3. Inode Utilization:
+Command: df -i
+Observation: Low inode usage (1% on /), indicating significant room for creating new files without system limitations.
+
+4. Storage Health & Recommendations:
+- Health: The system shows optimal disk and inode availability.
+- Recommendation: Ensure regular monitoring of the root partition and consider log rotation policies to maintain system performance as the application scales.
