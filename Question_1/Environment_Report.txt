@@ -1,0 +1,19 @@
+1. Username and groups associated with your account
+Command: id
+Observation: Executed the id command to verify the current user identity and group memberships. The output confirms that the username is 'coder' (uid=1000) and the account has administrative privileges as it belongs to the 'sudo' group.
+
+2. Current shell being used
+Command: echo $SHELL
+Observation: Checked the default command-line interpreter by printing the SHELL environment variable. The output /bin/bash confirms that the system is currently using the Bash shell.
+
+3. Current working directory
+Command: pwd
+Observation: Used the Print Working Directory (pwd) command to determine the absolute path of the current location. The output /home/coder confirms that the active workspace is the user's home directory.
+
+4. List of files and directories in your workspace
+Command: ls -la
+Observation: Executed ls -la to view all contents of the workspace. This displayed a detailed list including hidden files (like .bashrc), directories, read/write/execute permissions, and ownership details.
+
+5. Network connectivity verification result
+Command: ping -c 4 google.com
+Observation: Tested internet connectivity by sending 4 ICMP echo requests to Google's servers. The result showed "Destination Port Unreachable" and 100% packet loss, which indicates that the cloud lab's internal firewall blocks outbound ICMP requests for security purposes.
